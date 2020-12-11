@@ -35,7 +35,7 @@ export const byCategory = (posts, title, contentType) => {
 }
 
 // Export Template for use in CMS preview
-export const BlogIndexTemplate = ({
+export const HomePageTemplate = ({
   title,
   subtitle,
   featuredImage,
@@ -91,7 +91,7 @@ export const BlogIndexTemplate = ({
 )
 
 // Export Default BlogIndex for front-end
-const BlogIndex = ({ data: { page, posts, postCategories } }) => (
+const HomePage = ({ data: { page, posts, postCategories } }) => (
   <Layout
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
