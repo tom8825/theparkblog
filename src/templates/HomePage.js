@@ -114,7 +114,7 @@ const HomePage = ({ data: { page, posts, postCategories } }) => (
   </Layout>
 )
 
-export default BlogIndex
+export default HomePage
 
 export const pageQuery = graphql`
   ## Query for BlogIndex data
