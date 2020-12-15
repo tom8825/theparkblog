@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapPin, Smartphone, Mail } from 'react-feather'
+import { MapPin, Smartphone, Mail, Instagram } from 'react-feather'
 import { graphql } from 'gatsby'
 
 import PageHeader from '../components/PageHeader'
@@ -17,6 +17,7 @@ export const ContactPageTemplate = ({
   featuredImage,
   address,
   phone,
+  instagram,
   email,
   locations
 }) => (
@@ -31,7 +32,7 @@ export const ContactPageTemplate = ({
         <div>
           <Content source={body} />
           <div className="Contact--Details">
-            {address && (
+            {/* {address && (
               <a
                 className="Contact--Details--Item"
                 href={`https://www.google.com.au/maps/search/${encodeURI(
@@ -42,10 +43,15 @@ export const ContactPageTemplate = ({
               >
                 <MapPin /> {address}
               </a>
-            )}
-            {phone && (
+            )} */}
+            {/* {phone && (
               <a className="Contact--Details--Item" href={`tel:${phone}`}>
                 <Smartphone /> {phone}
+              </a>
+            )} */}
+            {instagram && (
+              <a className="Contact--Details--Item" href={`https://instagram.com/${instagram}`}>
+                <Instagram /> {instagram}
               </a>
             )}
             {email && (
@@ -56,13 +62,13 @@ export const ContactPageTemplate = ({
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <FormSimpleAjax name="Simple Form Ajax" />
-        </div>
+        </div> */}
       </div>
     </section>
 
-    <GoogleMap locations={locations} />
+    {/* <GoogleMap locations={locations} /> */}
   </main>
 )
 
@@ -89,6 +95,7 @@ export const pageQuery = graphql`
         featuredImage
         address
         phone
+        instagram
         email
         locations {
           mapLink

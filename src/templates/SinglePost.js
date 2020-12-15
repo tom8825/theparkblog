@@ -6,6 +6,7 @@ import { ChevronLeft } from 'react-feather'
 import Content from '../components/Content'
 import Layout from '../components/Layout'
 import './SinglePost.css'
+import SEO from "../components/seo"
 
 export const SinglePostTemplate = ({
   title,
@@ -89,12 +90,39 @@ export const SinglePostTemplate = ({
 
 // Export Default SinglePost for front-end
 const SinglePost = ({ data: { post, allPosts } }) => {
-  const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
+  const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id);
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.theparkblog.com/post/" + post.frontmatter.title.replace(/\s+/g, '-').toLowerCase()
+    },
+    "headline": post.frontmatter.title,
+    "description": post.frontmatter.excerpt,
+    "image": post.frontmatter.featuredImage,  
+    "author": {
+      "@type": "Organization",
+      "name": "TheParkBlog"
+    },  
+    "publisher": {
+      "@type": "Organization",
+      "name": "TheParkBlog",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.theparkblog.com/images/logo.png"
+      }
+    },
+    "datePublished": post.frontmatter.date
+  }
+
   return (
     <Layout
       meta={post.frontmatter.meta || false}
       title={post.frontmatter.title || false}
     >
+      <SEO title="Post" schemaMarkup={schema} />
       <SinglePostTemplate
         {...post}
         {...post.frontmatter}
@@ -126,6 +154,9 @@ export const pageQuery = graphql`
         categories {
           category
         }
+        excerpt
+        slug
+        featuredImage
       }
     }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Location } from '@reach/router'
 import qs from 'qs'
 
@@ -7,6 +7,7 @@ import PageHeader from '../components/PageHeader'
 import PostSection from '../components/PostSection'
 import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
+import SEO from "../components/seo"
 
 /**
  * Filter posts by date. Feature dates will be fitered
@@ -91,11 +92,37 @@ export const BlogIndexTemplate = ({
 )
 
 // Export Default BlogIndex for front-end
-const BlogIndex = ({ data: { page, posts, postCategories } }) => (
+const BlogIndex = ({ data: { page, posts, postCategories } }) => {
+  // const { site } = useStaticQuery(
+  //   graphql`
+  //     query{
+  //       site{
+  //         siteMetadata{
+  //           description
+  //           siteUrl
+  //         }
+  //       }
+  //     }
+  //   `
+  // );
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "NewsMediaOrganization",
+    "name": "TheParkBlog",
+    "alternateName": "The Park Blog",
+    "description": "this is the description",
+    "url": "https://www.theparkblog.com/",
+    "logo": "https://www.theparkblog.com/images/logo.png",
+    "sameAs": "theme.parker"
+  }
+  
+  return (
   <Layout
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
+    <SEO title="Home" schemaMarkup={schema} />
     <BlogIndexTemplate
       {...page}
       {...page.fields}
@@ -112,7 +139,8 @@ const BlogIndex = ({ data: { page, posts, postCategories } }) => (
       }))}
     />
   </Layout>
-)
+  )
+}
 
 export default BlogIndex
 
@@ -170,6 +198,12 @@ export const pageQuery = graphql`
             title
           }
         }
+      }
+    }   
+    site{
+      siteMetadata{
+        description
+        siteUrl
       }
     }
   }
