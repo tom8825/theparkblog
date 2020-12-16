@@ -114,7 +114,7 @@ const BlogIndex = ({ data: { page, posts, postCategories } }) => {
     "description": "this is the description",
     "url": "https://www.theparkblog.com/",
     "logo": "https://www.theparkblog.com/images/logo.png",
-    "sameAs": "theme.parker"
+    "sameAs": "https://www.instagram.com/theme.parker/"
   }
   
   return (

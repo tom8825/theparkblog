@@ -3,7 +3,7 @@ import _get from 'lodash/get'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
 import PageHeader from '../components/PageHeader'
-
+import Moment from 'react-moment'
 import Content from '../components/Content'
 import Layout from '../components/Layout'
 import './SinglePost.css'
@@ -34,7 +34,7 @@ export const SinglePostTemplate = ({
             backgroundImage={featuredImage}
           /><br/>
           <div className="SinglePost--Meta">
-            {date && (
+            {/* {date && (
               <time
                 className="SinglePost--Meta--Date"
                 itemProp="dateCreated pubdate datePublished"
@@ -42,7 +42,10 @@ export const SinglePostTemplate = ({
               >
                 {date}
               </time>
-            )}
+            )} */}
+            <Moment format="MMMM Do, YYYY">
+            {date}
+            </Moment>
             {categories && (
               <Fragment>
                 <span>|</span>
@@ -120,7 +123,8 @@ const SinglePost = ({ data: { post, allPosts } }) => {
         "url": "https://www.theparkblog.com/images/logo.png"
       }
     },
-    "datePublished": post.frontmatter.date
+    "datePublished": post.frontmatter.date,
+    "dateModified": post.frontmatter.date
   }
 
   return (
@@ -156,7 +160,7 @@ export const pageQuery = graphql`
         title
         template
         subtitle
-        date(formatString: "MMMM Do, YYYY")
+        date
         categories {
           category
         }
