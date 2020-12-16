@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import _get from 'lodash/get'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
+import PageHeader from '../components/PageHeader'
 
 import Content from '../components/Content'
 import Layout from '../components/Layout'
@@ -12,6 +13,7 @@ export const SinglePostTemplate = ({
   title,
   date,
   body,
+  featuredImage,
   nextPostURL,
   prevPostURL,
   categories = []
@@ -27,6 +29,10 @@ export const SinglePostTemplate = ({
           <ChevronLeft /> BACK
         </Link>
         <div className="SinglePost--Content relative">
+        <PageHeader
+            title={title}
+            backgroundImage={featuredImage}
+          /><br/>
           <div className="SinglePost--Meta">
             {date && (
               <time
