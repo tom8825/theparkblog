@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Location } from '@reach/router'
 import qs from 'qs'
-
+import { Helmet } from "react-helmet"
 import PageHeader from '../components/PageHeader'
 import PostSection from '../components/PostSection'
 import PostCategoriesNav from '../components/PostCategoriesNav'
@@ -64,6 +64,9 @@ export const BlogIndexTemplate = ({
 
       return (
         <main className="Blog">
+          <Helmet>
+            <meta name="google-site-verification" content="5VG-qIAGGspxa_RjhhkjLlCDD54TOzjxhTqvYOCyqag" />
+          </Helmet>
           <PageHeader
             title={title}
             subtitle={subtitle}
