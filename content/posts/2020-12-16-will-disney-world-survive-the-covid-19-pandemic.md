@@ -4,7 +4,7 @@ title: Will Disney World survive the COVID-19 pandemic?
 status: Published
 date: 2020-12-16
 featuredImage: https://ucarecdn.com/641a6a76-93fc-4a93-ad67-03d1ea56189a/
-excerpt: Disney World is considered by many to be onw of the happiest places on
+excerpt: Disney World is considered by many to be one of the happiest places on
   earth but, right now, things are looking increasingly gloomy as the
   coronavirus pandemic has put an economic dent in Disney's wallet, and they're
   not the only parks to feel the pinch.
