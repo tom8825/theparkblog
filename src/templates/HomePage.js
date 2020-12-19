@@ -64,9 +64,6 @@ export const BlogIndexTemplate = ({
 
       return (
         <main className="Blog">
-          <Helmet>
-            <meta name="google-site-verification" content="5VG-qIAGGspxa_RjhhkjLlCDD54TOzjxhTqvYOCyqag" />
-          </Helmet>
           <PageHeader
             title={title}
             subtitle={subtitle}

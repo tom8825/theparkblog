@@ -4,10 +4,11 @@ module.exports = {
   siteMetadata: {
     title: 'TheParkBlog',
     siteUrl: 'https://www.theparkblog.com/',
-    description: 'The is the site description -- it needs changing!'
+    description: 'We bring you the latest news, advice, and information relating to all things Theme Park. Attraction reviews and restaurant reviews.'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sitemap`,
     'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-plugin-google-tagmanager',
