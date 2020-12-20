@@ -14,7 +14,7 @@ locations:
 meta:
   description: This is a meta description.
   title: Contact Page
-instagram: "@theme.parker"
+instagram: "@theparkblog"
 ---
 
 # Contact us

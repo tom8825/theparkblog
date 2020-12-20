@@ -5,7 +5,7 @@ export default () => (
   <div>
     <h2 className="taCenter footerInsta">
       Follow us{' '}
-      <a href="https://instagram.com/theme.parker/" target="_blank">@theme.parker</a>
+      <a href="https://instagram.com/theparkblog/" target="_blank">@theparkblog</a>
     </h2>
     <br />
     <footer className="footer">
