@@ -64,6 +64,12 @@ export const BlogIndexTemplate = ({
 
       return (
         <main className="Blog">
+            <Helmet
+              titleTemplate={`Home | The Park Blog`}
+            >
+              {title}
+
+            </Helmet>
           <PageHeader
             title={title}
             subtitle={subtitle}
@@ -150,6 +156,14 @@ export const pageQuery = graphql`
   ## $id is processed via gatsby-node.js
   ## query name must be unique to this file
   query BlogIndex($id: String!) {
+    settingsYaml {
+      siteTitle
+      siteDescription
+      googleTrackingId
+      socialMediaCard {
+        image
+      }
+    }
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
       fields {

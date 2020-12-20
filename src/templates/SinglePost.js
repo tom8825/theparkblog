@@ -8,6 +8,7 @@ import Content from '../components/Content'
 import Layout from '../components/Layout'
 import './SinglePost.css'
 import SEO from "../components/seo"
+import { Helmet } from "react-helmet"
 
 export const SinglePostTemplate = ({
   title,
@@ -19,6 +20,11 @@ export const SinglePostTemplate = ({
   categories = []
 }) => (
   <main>
+    <Helmet
+      titleTemplate={`${title} | The Park Blog`}
+    >
+      {title}
+    </Helmet>
     <article
       className="SinglePost section light"
       itemScope
@@ -132,6 +138,7 @@ const SinglePost = ({ data: { post, allPosts } }) => {
       meta={post.frontmatter.meta || false}
       title={post.frontmatter.title || false}
     >
+      
       <SEO title="Post" schemaMarkup={schema} />
       <SinglePostTemplate
         {...post}
@@ -152,6 +159,14 @@ export const pageQuery = graphql`
   ## $id is processed via gatsby-node.js
   ## query name must be unique to this file
   query SinglePost($id: String!) {
+    settingsYaml {
+      siteTitle
+      siteDescription
+      googleTrackingId
+      socialMediaCard {
+        image
+      }
+    }
     post: markdownRemark(id: { eq: $id }) {
       ...Meta
       html

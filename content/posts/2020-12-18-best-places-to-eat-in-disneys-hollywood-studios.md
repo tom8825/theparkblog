@@ -8,6 +8,8 @@ excerpt: "Disney's Hollywood Studios has been given a lot of love over the last
   10 years, some of this love has come in the form of two new expansions -- Toy
   Story Land and Star Wars: Galaxy's Edge. We have put together a list of our
   favourite quick service and table service restaurants in Hollywood Studios. "
+categories:
+  - category: Top 5
 ---
 Disney's Hollywood Studios has been given a lot of love over the last 10 years, some of this love has come in the form of two new expansions -- Toy Story Land and Star Wars: Galaxy's Edge.
 

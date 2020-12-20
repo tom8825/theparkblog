@@ -3,7 +3,7 @@ import './Footer.css'
 
 export default () => (
   <div>
-    <h2 className="taCenter">
+    <h2 className="taCenter footerInsta">
       Follow us{' '}
       <a href="https://instagram.com/theme.parker/" target="_blank">@theme.parker</a>
     </h2>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { MapPin, Smartphone, Mail, Instagram } from 'react-feather'
 import { graphql } from 'gatsby'
-
+import { Helmet } from "react-helmet"
 import PageHeader from '../components/PageHeader'
 import FormSimpleAjax from '../components/FormSimpleAjax'
 import Content from '../components/Content'
@@ -22,6 +22,11 @@ export const ContactPageTemplate = ({
   locations
 }) => (
   <main className="Contact">
+    <Helmet
+      titleTemplate={`Contact Us | The Park Blog`}
+    >
+      {title}
+    </Helmet>
     <PageHeader
       title={title}
       subtitle={subtitle}
